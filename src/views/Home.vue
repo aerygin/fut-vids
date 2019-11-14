@@ -12,7 +12,12 @@
                 <div v-for="(match,index) in matches"
                      :key="index"
                      class="match-item">
-                    {{match.title}}
+                    <v-lazy>
+                        <v-card>
+                            {{match.title}}
+                            <div v-html="match.embed"></div>
+                        </v-card>
+                    </v-lazy>
                 </div>
             </div>
         </div>
@@ -51,5 +56,9 @@
     .main-wrapper {
         display: flex;
         justify-content: center;
+    }
+
+    .WidgetFt {
+        display:none !important;
     }
 </style>
